@@ -11,3 +11,6 @@ find . -type f -printf "%-.22T+ %M %n %-8u %-8g %8s %Tx %.8TX %p\n" | sort | cut
 
 # find file date
 find . -type f -ls |grep 'Apr 16 10:'
+
+#find file date without sh
+find . ! -name '*.sh'  -type f -ls |grep 'Apr 16'|xargs ls -ltr
