@@ -14,3 +14,6 @@ find . -type f -ls |grep 'Apr 16 10:'
 
 #find file date without sh
 find . ! -name '*.sh'  -type f -ls |grep 'Apr 16'|xargs ls -ltr
+
+# test lftp in WEDO
+lftp -u teclatest,testtecla -p 226  -e "put ./sunglasshutBV.xml;quit" sftp://sftp.wedoit.io
