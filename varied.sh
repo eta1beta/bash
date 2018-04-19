@@ -31,3 +31,6 @@ fi
 
 #SEND MAIL WITH MAILX
 echo "mail text." | mailx -s "object text ${targetEnv}" -a "file to send" "${EMAIL_STATISTICS} a@b.com b@c.com" 
+
+## java command
+${JAVA} -cp ./GenStatsOutbound.jar:/opt/ibm/db2/V10.5/java/db2java.zip:/opt/ibm/db2/V10.5/java/db2jcc.jar:/opt/ibm/db2/V10.5/java/db2jcc_license_cu.jar:. ${GENSTATS_ATTR} ${DBUSER1} ${DBPWD1} ${DBURLPARM} 
