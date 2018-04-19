@@ -1,3 +1,12 @@
+#!/bin/bash -x
+# Modified by	TECLA
+# Author		MDG
+# Description	sghSiteCatalyst.sh
+# caller		JenkinsFile step Outbound_Push_SiteCatalyst
+
+
+
+# find pipe tar
 find . -name discount_input.csv* -print -exec tar -cvf /tmp/discount_to_transfer.tar {} '+'
 
 # compress file
