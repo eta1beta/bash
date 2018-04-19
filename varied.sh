@@ -6,6 +6,9 @@ tar -czvf name-of-archive.tar.gz /path/to/directory-or-file
 # read content of tar gz file
 tar tvf GENSTAT.tar.gz
 
+# EXTRACT CONTENT
+tar xvf GENSTAT.tar.gz
+
 # order file recurse by date
 find . -type f -printf "%-.22T+ %M %n %-8u %-8g %8s %Tx %.8TX %p\n" | sort | cut -f 2- -d ' '
 
