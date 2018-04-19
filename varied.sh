@@ -34,3 +34,10 @@ echo "mail text." | mailx -s "object text ${targetEnv}" -a "file to send" "${EMA
 
 ## java command
 ${JAVA} -cp ./GenStatsOutbound.jar:/opt/ibm/db2/V10.5/java/db2java.zip:/opt/ibm/db2/V10.5/java/db2jcc.jar:/opt/ibm/db2/V10.5/java/db2jcc_license_cu.jar:. ${GENSTATS_ATTR} ${DBUSER1} ${DBPWD1} ${DBURLPARM} 
+
+
+## compress thing with zip
+zip -j /tmp/AU_Genstats_`date "+%m%d%y"`.zip /home/wasadmin/dataload/sgh/Outbound/GenStats/${targetEnv}/au/* `find ${IN_DIR}/AU/${targetEnv}/ ${IN_DIR}/AUINV/ -ctime -1 -type f`
+
+## delete something inside zip
+zip -d /tmp/AU_Genstats_`date "+%m%d%y"`.zip WCSDC*
