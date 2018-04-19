@@ -17,3 +17,14 @@ find . ! -name '*.sh'  -type f -ls |grep 'Apr 16'|xargs ls -ltr
 
 # test lftp in WEDO
 lftp -u teclatest,testtecla -p 226  -e "put ./sunglasshutBV.xml;quit" sftp://sftp.wedoit.io
+
+# TEST exist file
+if [ -e "${GENSTATS_DIR}/${targetEnv}/sghStatistics/sghStatistics_Files.zip" ]; then
+    echo "File exists"
+    
+else 
+	echo "File doesn't exist"
+fi
+
+#SEND MAIL WITH MAILX
+echo "mail text." | mailx -s "object text ${targetEnv}" -a "file to send" "${EMAIL_STATISTICS} a@b.com b@c.com" 
