@@ -7,7 +7,7 @@
 ####################################################################
 
 
-# find pipe tar # find pipe tar # find pipe tar # find pipe tar
+# find pipe tar
 find . -name discount_input.csv* -print -exec tar -cvf /tmp/discount_to_transfer.tar {} '+'
 
 # order file recurse by date
