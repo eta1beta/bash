@@ -58,3 +58,39 @@ zip -j /tmp/AU_Genstats_`date "+%m%d%y"`.zip /home/wasadmin/dataload/sgh/Outboun
 
 ## delete something inside zip
 zip -d /tmp/AU_Genstats_`date "+%m%d%y"`.zip WCSDC*
+
+
+sort -t"," -k1n,1 mergedfile.csv mergedfile_ordered.csv
+
+sort -u mergedfile_ordered.csv -o mergedfile_dedup.csv
+
+cat $(find ./ -name "file*" | sort -V) > newfile
+
+
+
+---------------------------------------------------------------------------
+
+#!/bin/bash
+
+# BEGIN METADATA
+# Author = Stefano Teodorani / Romolo Archi / Raheeb Malliyil
+# Issue = https://rayban.atlassian.net/browse/RB-26410
+# Type = Email
+# Name = ./Afterpay_canceled_orders.sh
+# Recipients = Mutuated from parameter
+# Source = https://bitbucket.org/luxrayban/rayban-infra-scripts
+# END METADATA
+
+script_dir="$(dirname "$0")"
+script_name="$(basename $0)"
+
+source $script_dir/oracle.profile
+
+trap ctrl_c INT
+
+function ctrl_c() {
+  echo "** Trapped CTRL-C"
+  exit;
+}
+
+# -------
