@@ -39,6 +39,7 @@ else
 	echo "File doesn't exist"
 fi
 
+
 #SEND MAIL WITH MAILX
 echo "mail text." | mailx -s "object text ${targetEnv}" -a "file to send" "${EMAIL_STATISTICS} a@b.com b@c.com"
 
