@@ -84,6 +84,7 @@ cat $(find ./ -name "file*" | sort -V) > newfile
 
 script_dir="$(dirname "$0")"
 script_name="$(basename $0)"
+cfg_name="$(basename $sql_passed .sql).cfg"
 
 source $script_dir/oracle.profile
 
