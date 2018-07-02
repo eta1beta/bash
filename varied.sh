@@ -67,6 +67,26 @@ sort -u mergedfile_ordered.csv -o mergedfile_dedup.csv
 
 cat $(find ./ -name "file*" | sort -V) > newfile
 
+-------------
+case "${storeInput}" in
+	UK|ES|FR|DE)
+		echo
+		echo
+	;;
+	AU)
+		echo
+		echo
+	;;
+	*)
+		echo "***ERROR: StoreInput ${storeInput} not recognized. Exiting..."
+		exit 1
+	;;
+esac
+----------
+
+
+
+
 
 
 ---------------------------------------------------------------------------
