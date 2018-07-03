@@ -116,3 +116,13 @@ function ctrl_c() {
 }
 
 # -------
+
+
+
+------------------------ aggiunte crontab jobs per ryaban prima originali
+30 04-22 * * * /bin/bash /home/oracle/infradba/scripts/CheckZeroPrice_all_locale_prodlive.sh &> /home/oracle/infradba/logs/cronjob_logs/CheckZeroPrice_all_locale_prodlive-`date +\%Y\%m\%d\%H\%M\%S`.log
+15 */1 * * * sh /home/oracle/infradba/scripts/CheckLowPrice_all_locale_prodlv.sh &>> /home/oracle/infradba/logs/cronjob_logs/CheckLowPrice_all_locale_prodlv.log
+
+20 04-22 * * * /bin/bash /home/oracle/infradba/scripts/Check_lz_Price_all_locale_prodlv.sh.work zero &> /home/oracle/infradba/logs/cronjob_logs/CheckZeroPrice_all_locale_prodlive_work-`date +\%Y\%m\%d\%H\%M\%S`.log
+5 */1 * * * sh /home/oracle/infradba/scripts/Check_lz_Price_all_locale_prodlv.sh.work low &>> /home/oracle/infradba/logs/cronjob_logs/CheckLowPrice_all_locale_prodlv_work.log
+----------------------------------
