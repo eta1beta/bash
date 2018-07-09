@@ -31,10 +31,8 @@ tar xvf GENSTAT.tar.gz
 # test lftp in WEDO
 ### ATTENZIONE. se problemi provare in prima battuta a fare un ssh sull'host
 
-lftp -u teclatest,testtecla -p 226  -e "put ./sunglasshutBV.xml;quit" sftp://sftp.wedoit.io
-lftp -u teclatest,testtecla -p 226  -e "put ./ESSE3_UNIVR_PROD.export.log;quit" sftp.wedoit.io
+lftp -u USER,PASSWORD -p 226  -e "put ./sunglasshutBV.xml;quit" sftp://sftp.wedoit.io
 
-lftp -u teclatest,testtecla -p 226  -e "put ./ifpile.txt;quit" sftp://sftp.wedoit.io
 
 
 # TEST exist file
