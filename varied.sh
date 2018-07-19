@@ -34,6 +34,11 @@ tar xvf GENSTAT.tar.gz
 lftp -u USER,PASSWORD -p 226  -e "put ./sunglasshutBV.xml;quit" sftp://sftp.wedoit.io
 
 
+
+------------------------------dataload
+${wasHome}/bin/dataload.sh ${DATALOAD_DIR}/wc-dataload.xml -Denv=$1 -DdbName=$2 -DdbUser=$3 -DdbPass=$4 -DdbSchema=$5 -DdbServer=$6 -DdbPort=$7 -DstoreIdentifier="$9" -DcatalogIdentifier="$9" -DlangId=${10} -Dcurrency=${11} -DXmlValidation=false
+-------------------------------------------
+
 ---------------------
 # TEST exist file
 if [ -e "${GENSTATS_DIR}/${targetEnv}/sghStatistics/sghStatistics_Files.zip" ]; then
@@ -138,7 +143,7 @@ function ctrl_c() {
 # -------
 ---------------------------------------
 
-
+## QUESTE LE HA BUTTATE VIA TEO???? ----
 ------------------------ aggiunte crontab jobs per ryaban prima originali
 30 04-22 * * * /bin/bash /home/oracle/infradba/scripts/CheckZeroPrice_all_locale_prodlive.sh &> /home/oracle/infradba/logs/cronjob_logs/CheckZeroPrice_all_locale_prodlive-`date +\%Y\%m\%d\%H\%M\%S`.log
 15 */1 * * * sh /home/oracle/infradba/scripts/CheckLowPrice_all_locale_prodlv.sh &>> /home/oracle/infradba/logs/cronjob_logs/CheckLowPrice_all_locale_prodlv.log
@@ -152,3 +157,21 @@ function ctrl_c() {
 15 */1 * * * sh /home/oracle/infradba/scripts/Check_lz_Price_all_locale_psl.sh.work low stage &>> /home/oracle/infradba/logs/cronjob_logs/CheckLowPrice_all_locale_psl_lowstage_work.log
 ----------------------------------
 
+cd /app/raybanutilities/Product
+grep -rl "pwd=="|xargs ls -l
+
+ 
+find . -print |grep TemplateXML|grep env|xargs ls -l
+ 
+find . -print |grep TemplateXML|grep -rl "pwd=="|xargs ls -l
+
+find . -print |grep env|xargs ls -l|wc
+
+find . -print |grep env|grep -rl "pwd=="
+
+find . -print |grep TemplateXML|grep env|
+
+### tutti quelli sotto TemplateXML, che riguardano env, che contengono la pwd 
+find . -print |grep TemplateXML|grep env|xargs grep "pwd=="|wc
+find . -print |grep TemplateXML|grep env|xargs grep -l "pwd=="|xargs ls -ltr
+------------------------------
