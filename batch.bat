@@ -18,26 +18,10 @@ FORFILES /S /D -10 /C "cmd /c IF @isdir == TRUE rd /S /Q $s
 
 FORFILES /S /D -15 /C "cmd /c IF @isdir == TRUE rd /S /Q @path"
 
-
-
-
-@echo %s
-
-
-
-d:
-
-cd \uranium\nas01
-
-date /T >> C:\copie\deloldbk.log
-
-FORFILES /S /D -15 /C "cmd /c IF @isdir == TRUE rd /S /Q @path 1>> C:\copie\deloldbk.log 2>&1"
-
-cd \uranium\dallas
-FORFILES /S /D -15 /C "cmd /c IF @isdir == TRUE rd /S /Q @path 1>> C:\copie\deloldbk.log 2>&1"
-
-cd \uranium\tallin
-FORFILES /S /D -15 /C "cmd /c IF @isdir == TRUE rd /S /Q @path 1>> C:\copie\deloldbk.log 2>&1"
-
-cd \uranium\odessa
-FORFILES /S /D -15 /C "cmd /c IF @isdir == TRUE rd /S /Q @path 1>> C:\copie\deloldbk.log 2>&1"
+---------------------------
+REM DEL OLDEST DIR IN DIR 
+cd \uranium\aruba
+FOR /f "delims=" %%a in ('dir ".\*" /t:c /a:d /o:-d /b') do set lastfolder=%%a
+echo %lastfolder%
+rd /s /q ".\%lastfolder%"
+-----------------------------
