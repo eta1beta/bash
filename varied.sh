@@ -175,3 +175,14 @@ find . -print |grep TemplateXML|grep env|
 find . -print |grep TemplateXML|grep env|xargs grep "pwd=="|wc
 find . -print |grep TemplateXML|grep env|xargs grep -l "pwd=="|xargs ls -ltr
 ------------------------------
+
+find . -print |grep TemplateXML|grep env|xargs grep -l "pwd=="|xargs sed -i "s/INTDB01/\${dbname}/g"
+
+
+## -------------------------
+## REDIRECT ALL OUTPUT TO FILE
+./catalogInitiator.sh &> ./alloutput.txt
+
+## -------------------------
+## find files in subdir and delete it. Emtpy subdir from files
+find * -type f -print|xargs rm -f
