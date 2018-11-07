@@ -186,3 +186,17 @@ find . -print |grep TemplateXML|grep env|xargs grep -l "pwd=="|xargs sed -i "s/I
 ## -------------------------
 ## find files in subdir and delete it. Emtpy subdir from files
 find * -type f -print|xargs rm -f
+
+
+## -------------------------
+# groovy pass variable to script sh
+
+env.setProperty("JOBNAME","${JOBNAME}")
+
+
+
+#!/bin/bash
+HOME_DIR=$( dirname $0 )
+. $HOME_DIR/env.props
+test $DEBUG_MODE -eq 1 && PS4='Line ${LINENO}'
+test $DEBUG_MODE -eq 1 && set -x || set +x
