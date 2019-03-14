@@ -33,6 +33,8 @@ tar xvf GENSTAT.tar.gz
 
 lftp -u USER,PASSWORD -p 226  -e "put ./sunglasshutBV.xml;quit" sftp://sftp.wedoit.io
 
+lftp -u teclatest,test_tecla -p 226  -e "put ./filex.xmll;quit" sftp://sftp.wedoit.io
+
 
 
 ------------------------------dataload
@@ -57,6 +59,7 @@ EMAIL_SUBJECT=$2 	# Ex: "AU Store Associate Sales Report"
 EMAIL_ATTACH=$3 	# Ex: "./tmp/appo/file.zip"
 EMAIL_TO=$4 		# Ex: "n.surname@b.com b.surname@c.com"
 echo ${EMAIL_OBJECT}  | mailx -s ${EMAIL_SUBJECT} -a ${EMAIL_ATTACH} ${EMAIL_TO}
+echo "BODY" | mailx -s "OBJECT" -a *.gz m.digiorgio@wedoit.io
 
 --------------------------------------
 
@@ -200,3 +203,6 @@ HOME_DIR=$( dirname $0 )
 . $HOME_DIR/env.props
 test $DEBUG_MODE -eq 1 && PS4='Line ${LINENO}'
 test $DEBUG_MODE -eq 1 && set -x || set +x
+
+## sync dropbox folder
+sshpass -p 'xxxxxxx' rsync -avzh --chmod=Du=rwx,Dgo=rx,Fu=rw,Fog=r -e "ssh -p 8922" tecla@80.94.121.164:'/cygdrive/c/Users/tecla/"ElesaTecla Dropbox"/EG-Team' /opt/elesa-ganter/Dbox>/opt/elesa-ganter/rsync.log
