@@ -1,0 +1,3 @@
+@echo off
+set PROJECT_ROOT=c:\\work\\workspace\\eclipse\\tecla-common-test\\tecla-common-test-core-fvt
+java -Dwebdriver.chrome.driver=%PROJECT_ROOT%\\lib\\selenium\\driver\\chromedriver.exe -Dwebdriver.gecko.driver=%PROJECT_ROOT%\\lib\\selenium\\driver\\geckodriver.exe -jar %PROJECT_ROOT%\\lib\selenium\\server-standalone\\selenium-server-standalone-3.12.0.jar  -role node -port 5555 -hub http://localhost:4444/grid/register
