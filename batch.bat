@@ -26,5 +26,6 @@ echo %lastfolder%
 rd /s /q ".\%lastfolder%"
 -----------------------------
 
-
+ 
+ 
 http://www.m-link.it/m-link_news/Script_batch_bat_per_eliminare_cancellare_file_piu_vecchi_di_un_certo_numero_di_giorni.asp
