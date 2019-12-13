@@ -13,7 +13,7 @@ REM ##################### COMPRESS ########################
 cd %dirbk%
 del /Q *.7z
 for %%a in (*.bak) DO (%w-zip% %w-par% %%a.7z %%a)
-REM ##################### COMPRESS pictures ################
+REM ##################### COMPRESS pictures ############
 %w-zip% %w-par% -r pictures.7z %dir-pic%
 REM ####################### MOVE 7Z TO DROPBOX ############
 move /y *.7z %dir7z%
